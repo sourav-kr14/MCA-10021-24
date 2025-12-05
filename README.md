@@ -48,27 +48,22 @@ This project includes user authentication, drag-and-drop task management, and pe
 - Field	Value
 - Emai-	admin@test.com
 - Password- admin123
-- ▶️ How to Run the Project
-- 1️⃣ Install Dependencies
+## 1️⃣ Clone the Repository
+- git clone https://github.com/sourav-kr14/MCA-10021-24.git
+- cd jira-board
+## 2️⃣ Install Dependencies
 - npm install @angular/cdk
-
-- 2️⃣ Start Development Server
+## 3️⃣ Run the Development Server
 - ng serve
+## 4️⃣ Open the Application
+- Go to: http://localhost:4200
 
-- 3️⃣ Open in Browser
-- http://localhost:4200
+## 6️⃣ Use the Board
 
-## 🧪 How to Use the Board
-- ➤ Add a Task
-- Click the + button under any column
-- Enter Task ID, Title, and Description
-- Click Save
-
-- ➤ Move a Task
-- Drag a task card and drop it into another workflow column
-
-- ➤ Test Persistence
-- Refresh the page — tasks will remain saved
+- Click + under any column to add a task
+- Enter task details → click Save
+- Drag tasks between columns
+- Refresh the page → tasks remain saved via LocalStorage
 
 ## 📂 Project Structure
 src/
@@ -89,6 +84,8 @@ src/
 ## 📸 Screenshots
 <img width="1905" height="985" alt="image" src="https://github.com/user-attachments/assets/344fe39a-ec7e-4410-b99b-e715889fbab6" />
 <img width="1904" height="985" alt="image" src="https://github.com/user-attachments/assets/38a0a30d-7ca6-4373-9d5f-9ce3ed1d6957" />
+<img width="1919" height="990" alt="image" src="https://github.com/user-attachments/assets/968f6ef9-afde-44de-9b4a-3c11738c3cdb" />
+
 
 
 
