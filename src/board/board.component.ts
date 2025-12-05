@@ -18,15 +18,11 @@ interface Task {
 })
 export class BoardComponent {
 
-  columns: {
-    name: string;
-    key: string;
-    tasks: Task[];
-  }[] = [
-    { name: 'To Do', key: 'todo', tasks: [] },
-    { name: 'In Progress', key: 'inprogress', tasks: [] },
-    { name: 'Need Review', key: 'review', tasks: [] },
-    { name: 'Completed', key: 'done', tasks: [] }
+  columns = [
+    { name: 'To Do', key: 'todo', tasks: [] as Task[] },
+    { name: 'In Progress', key: 'inprogress', tasks: [] as Task[] },
+    { name: 'Need Review', key: 'review', tasks: [] as Task[] },
+    { name: 'Completed', key: 'done', tasks: [] as Task[] }
   ];
 
   showModal = false;
@@ -34,39 +30,34 @@ export class BoardComponent {
   newTask: Task = { id: '', title: '', description: '' };
 
   constructor(@Inject(PLATFORM_ID) private platformId: any) {
-    // Load previously saved tasks only in browser (not SSR)
     if (isPlatformBrowser(this.platformId)) {
       this.loadFromStorage();
     }
   }
 
-  /* OPEN MODAL */
   openAddTask(colKey: string) {
     this.selectedColumn = colKey;
     this.showModal = true;
     this.newTask = { id: '', title: '', description: '' };
   }
 
-  /* CLOSE MODAL */
   closeModal() {
     this.showModal = false;
   }
 
-  /* ADD NEW TASK */
   addTask() {
     if (!this.newTask.id || !this.newTask.title) {
       alert("Task ID and Title are required!");
       return;
     }
 
-    const column = this.columns.find(c => c.key === this.selectedColumn);
-    column?.tasks.push({ ...this.newTask });
+    const col = this.columns.find(c => c.key === this.selectedColumn);
+    col?.tasks.push({ ...this.newTask });
 
-    this.saveToStorage(); // Save changes
+    this.saveToStorage();
     this.closeModal();
   }
 
-  /* DRAG & DROP BETWEEN COLUMNS */
   drop(event: CdkDragDrop<Task[]>) {
     if (event.previousContainer !== event.container) {
       transferArrayItem(
@@ -76,24 +67,20 @@ export class BoardComponent {
         event.currentIndex
       );
 
-      this.saveToStorage(); // Save board after drag
+      this.saveToStorage();
     }
   }
 
-  /* SAVE BOARD DATA TO LOCAL STORAGE */
   saveToStorage() {
     if (isPlatformBrowser(this.platformId)) {
       localStorage.setItem('jira-board', JSON.stringify(this.columns));
     }
   }
 
-  /* LOAD BOARD DATA FROM LOCAL STORAGE */
   loadFromStorage() {
     if (isPlatformBrowser(this.platformId)) {
       const saved = localStorage.getItem('jira-board');
-      if (saved) {
-        this.columns = JSON.parse(saved);
-      }
+      if (saved) this.columns = JSON.parse(saved);
     }
   }
 }

@@ -4,7 +4,7 @@
     
     <h1 class="text-4xl font-bold text-gray-800 mb-6">Log in</h1>
 
-    <!-- Username -->
+ 
     <input
       type="email"
       [(ngModel)]="email"
@@ -13,7 +13,7 @@
              focus:ring-cyan-500 focus:outline-none"
     />
 
-    <!-- Password -->
+   
     <input
       type="password"
       [(ngModel)]="password"
@@ -22,7 +22,7 @@
              focus:ring-cyan-500 focus:outline-none"
     />
 
-    <!-- Login Button -->
+   
     <button
       (click)="login()"
       class="w-full py-3 rounded-lg text-white font-semibold bg-[#04A6C2] hover:bg-[#028ea6] 
@@ -31,13 +31,13 @@
       Log in
     </button>
 
-    <!-- Error -->
+  
     <p *ngIf="error" class="text-red-600 text-center mt-4 text-sm">
       {{ error }}
     </p>
 
-    <!-- Footer -->
-    <p class="text-center text-gray-500 mt-6">
+  
+    <p class="text-center text-gray-700 mt-6 font-medium">
       or, <span class="font-medium text-gray-700">sign up</span>
     </p>
 
