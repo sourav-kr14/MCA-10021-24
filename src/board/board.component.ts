@@ -14,15 +14,14 @@ interface Task {
   standalone: true,
   imports: [CommonModule, FormsModule, DragDropModule],
   templateUrl: './board.component.html',
-  styleUrls: ['./board.component.css']
+  styleUrls: ['./board.component.css'],
 })
 export class BoardComponent {
-
   columns = [
     { name: 'To Do', key: 'todo', tasks: [] as Task[] },
     { name: 'In Progress', key: 'inprogress', tasks: [] as Task[] },
     { name: 'Need Review', key: 'review', tasks: [] as Task[] },
-    { name: 'Completed', key: 'done', tasks: [] as Task[] }
+    { name: 'Completed', key: 'done', tasks: [] as Task[] },
   ];
 
   showModal = false;
@@ -47,11 +46,11 @@ export class BoardComponent {
 
   addTask() {
     if (!this.newTask.id || !this.newTask.title) {
-      alert("Task ID and Title are required!");
+      alert('Task ID and Title are required!');
       return;
     }
 
-    const col = this.columns.find(c => c.key === this.selectedColumn);
+    const col = this.columns.find((c) => c.key === this.selectedColumn);
     col?.tasks.push({ ...this.newTask });
 
     this.saveToStorage();
