@@ -45,31 +45,30 @@ This project includes user authentication, drag-and-drop task management, and pe
 - LocalStorage API	
 
 ## 🔑 Login Credentials
-Field	Value
-Email	admin@test.com
-Password	admin123
-▶️ How to Run the Project
-1️⃣ Install Dependencies
-npm install
+- Field	Value
+- Emai-	admin@test.com
+- Password- admin123
+- ▶️ How to Run the Project
+- 1️⃣ Install Dependencies
+- npm install @angular/cdk
 
-2️⃣ Start Development Server
-ng serve
+- 2️⃣ Start Development Server
+- ng serve
 
-3️⃣ Open in Browser
-http://localhost:4200
+- 3️⃣ Open in Browser
+- http://localhost:4200
 
 ## 🧪 How to Use the Board
-➤ Add a Task
-Click the + button under any column
-Enter Task ID, Title, and Description
-Click Save
+- ➤ Add a Task
+- Click the + button under any column
+- Enter Task ID, Title, and Description
+- Click Save
 
-➤ Move a Task
-Drag a task card and drop it into another workflow column
+- ➤ Move a Task
+- Drag a task card and drop it into another workflow column
 
-➤ Test Persistence
-
-Refresh the page — tasks will remain saved
+- ➤ Test Persistence
+- Refresh the page — tasks will remain saved
 
 ## 📂 Project Structure
 src/
