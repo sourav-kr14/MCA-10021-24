@@ -1,0 +1,89 @@
+<div class="min-h-screen bg-[#e9eff1] flex">
+
+  <!-- LEFT SIDEBAR -->
+  <div class="w-48 bg-[#0e3a75] text-white p-5 space-y-4">
+    <h2 class="font-semibold mb-6">Design team</h2>
+    <p class="cursor-pointer hover:text-gray-300">Roadmap</p>
+    <p class="cursor-pointer hover:text-gray-300">Board</p>
+    <p class="cursor-pointer hover:text-gray-300">Add item</p>
+    <p class="cursor-pointer hover:text-gray-300">Project settings</p>
+  </div>
+
+  <!-- MAIN BOARD AREA -->
+  <div class="flex-1 p-8">
+
+    <h1 class="text-2xl font-bold mb-8">
+      ✨ Jira board (Vetty) ✨
+    </h1>
+
+    <div class="flex gap-6">
+
+      <div class="w-64" *ngFor="let col of columns">
+
+        <div class="bg-white rounded-xl shadow p-3">
+          <h3 class="text-sm font-semibold text-gray-700 mb-3">
+            {{ col.name }}
+          </h3>
+
+          <!-- TASK LIST -->
+          <div class="bg-gray-100 rounded-lg p-3 min-h-[250px]"
+               cdkDropList
+               [cdkDropListData]="col.tasks"
+               (cdkDropListDropped)="drop($event)">
+
+            <div class="bg-white rounded-lg shadow px-3 py-2 mb-3 border"
+                 *ngFor="let task of col.tasks"
+                 cdkDrag>
+
+              <p class="font-medium text-sm">{{ task.title }}</p>
+              <p class="text-xs text-gray-500">{{ task.id }}</p>
+
+            </div>
+
+          </div>
+
+          <!-- Add task button -->
+          <button class="mt-3 w-full bg-gray-200 rounded-lg py-2 text-sm"
+                  (click)="openAddTask(col.key)">
+            +
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="fixed inset-0 bg-black/40 flex items-center justify-center" *ngIf="showModal">
+  <div class="bg-white p-6 rounded-xl shadow-lg w-80">
+
+    <h2 class="text-lg font-semibold mb-4">Add Task</h2>
+
+    <input type="text" [(ngModel)]="newTask.id"
+           placeholder="Task ID"
+           class="w-full mb-3 px-3 py-2 border rounded-lg focus:ring focus:ring-blue-300"/>
+
+    <input type="text" [(ngModel)]="newTask.title"
+           placeholder="Title"
+           class="w-full mb-3 px-3 py-2 border rounded-lg focus:ring focus:ring-blue-300"/>
+
+    <textarea rows="3" [(ngModel)]="newTask.description"
+              placeholder="Description"
+              class="w-full mb-3 px-3 py-2 border rounded-lg focus:ring focus:ring-blue-300"></textarea>
+
+    <div class="flex justify-between">
+      <button class="px-4 py-2 bg-blue-600 text-white rounded-lg"
+              (click)="addTask()">
+        Save
+      </button>
+      <button class="px-4 py-2 bg-gray-300 rounded-lg"
+              (click)="closeModal()">
+        Cancel
+      </button>
+    </div>
+
+  </div>
+</div>
