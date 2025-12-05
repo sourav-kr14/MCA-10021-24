@@ -1,59 +1,97 @@
-# JiraBoard
+## 📌 Vetty Assignment: Angular Jira-Style Task Board
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.2.
+A fully functional, simplified Kanban-style task board built using Angular 17 (Standalone Components) and styled with TailwindCSS.
+This project includes user authentication, drag-and-drop task management, and persistent storage using LocalStorage.
 
-## Development server
+##🚀 Features
+## ✅ Login Page
+- Tailwind-styled UI
+- Hardcoded credentials with validation
+- Error message for incorrect login
 
-To start a local development server, run:
+## ✅ Jira-Style Board
+- Four workflow columns:
+- To Do
+- In Progress
+- Need Review
+- Completed
 
-```bash
+## ✅ Task Creation Modal
+- Add Task ID
+- Add Title
+- Add Description
+- Tasks added to the correct column
+
+## ✅ Drag & Drop (Angular CDK)
+- Move tasks between columns
+- Drag state persists across refresh
+
+## ✅ LocalStorage Persistence
+- Automatically saves board data
+- Tasks remain after page reload
+- SSR-safe implementation
+
+## ✅ Clean UI / UX
+- Fully styled using TailwindCSS
+- Modern, Jira-inspired look
+- Left sidebar navigation
+- Responsive layout
+
+## 🛠️ Tech Stack
+- Angular 17	
+- TailwindCSS	
+- Angular CDK	
+- TypeScript
+- LocalStorage API	
+
+## 🔑 Login Credentials
+Field	Value
+Email	admin@test.com
+Password	admin123
+▶️ How to Run the Project
+1️⃣ Install Dependencies
+npm install
+
+2️⃣ Start Development Server
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+3️⃣ Open in Browser
+http://localhost:4200
 
-## Code scaffolding
+## 🧪 How to Use the Board
+➤ Add a Task
+Click the + button under any column
+Enter Task ID, Title, and Description
+Click Save
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+➤ Move a Task
+Drag a task card and drop it into another workflow column
 
-```bash
-ng generate component component-name
-```
+➤ Test Persistence
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Refresh the page — tasks will remain saved
 
-```bash
-ng generate --help
-```
+## 📂 Project Structure
+src/
+ - ├── app/
+ │   ├── login/
+ │   │   ├── login.component.ts
+ │   │   ├── login.component.html
+ │   │   └── login.component.css
+- │   ├── board/
+ │   │   ├── board.component.ts
+ │   │   ├── board.component.html
+ │   │   └── board.component.css
+ │   ├── app.routes.ts
+ │   └── app.config.ts
+- ├── main.ts
+ - └── styles.css
+ 
+## 📸 Screenshots
+<img width="1905" height="985" alt="image" src="https://github.com/user-attachments/assets/344fe39a-ec7e-4410-b99b-e715889fbab6" />
+<img width="1904" height="985" alt="image" src="https://github.com/user-attachments/assets/38a0a30d-7ca6-4373-9d5f-9ce3ed1d6957" />
 
-## Building
 
-To build the project run:
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 📝 Author
+- Sourav — Built for educational and evaluation purposes (Vetty Assignment).
