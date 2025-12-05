@@ -3,7 +3,7 @@
 A fully functional, simplified Kanban-style task board built using Angular 17 (Standalone Components) and styled with TailwindCSS.
 This project includes user authentication, drag-and-drop task management, and persistent storage using LocalStorage.
 
-##🚀 Features
+### 🚀 Features
 ## ✅ Login Page
 - Tailwind-styled UI
 - Hardcoded credentials with validation
